@@ -20,6 +20,13 @@ function scrollUp() {
 
 $(function () {
   $(".next_btn").click(function (e) {
+    let divs = $(this).parent().prev().children();
+    let inputs = divs.find("input:checked");
+    if (inputs.length < 1) {
+      alert("문항이 선택되지 않았습니다.");
+      return false;
+    }
+
     e.preventDefault();
     scrollDown();
   });
